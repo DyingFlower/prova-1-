@@ -1,8 +1,10 @@
 package robo;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Plano {
+	public int alunos;
 	public int tamanhox;
 	public int tamanhoy;
 	public Celula[][] listaCelulas;
@@ -18,6 +20,7 @@ public class Plano {
 					contador++;
 				}
 			}
+			AdicionarAlunosnoPlano();
 	}
 
 	public void verificarSeTemRobo() {
@@ -77,6 +80,23 @@ public class Plano {
 				
 	        }
 	    }
+	}
+	public void AdicionarAlunosnoPlano() {
+		Scanner leitor = new Scanner(System.in);
+		int regra =(tamanhox*tamanhoy)/2;
+		System.out.println("Informe o Numero de alunos no Plano: ");
+		alunos=leitor.nextInt();
+		if(alunos>regra) {
+			System.out.println("Numero muito grande de alunos, informe novamente");
+			alunos=leitor.nextInt();
+		}
+		else {
+			for(;alunos>0;alunos--) {
+				Aluno aluno = new Aluno("Aluno",this);
+			}
+		}
+		leitor.close();
+		
 	}
 
 }
