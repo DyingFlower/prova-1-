@@ -7,13 +7,21 @@ public class Peao extends Robo{
 		tipo="Peao";
 	}
 	public void Avançar() {
-		plano.listaCelulas[posicaox][posicaoy].criaturas.remove(0);
+		for(int i=0;i<plano.listaCelulas[posicaox][posicaoy].criaturas.size();i++) {
+			if(plano.listaCelulas[posicaox][posicaoy].criaturas.get(i)==this) {
+				plano.listaCelulas[posicaox][posicaoy].criaturas.remove(i);
+			}
+		}
 		posicaox++;
 		plano.listaCelulas[posicaox][posicaoy].criaturas.add(this);
 	}
 
 	public void Retroceder() {
-		plano.listaCelulas[posicaox][posicaoy].criaturas.remove(0);
+		for(int i=0;i<plano.listaCelulas[posicaox][posicaoy].criaturas.size();i++) {
+			if(plano.listaCelulas[posicaox][posicaoy].criaturas.get(i)==this) {
+				plano.listaCelulas[posicaox][posicaoy].criaturas.remove(i);
+			}
+		}
 		posicaox--;
 		plano.listaCelulas[posicaox][posicaoy].criaturas.add(this);
 	}

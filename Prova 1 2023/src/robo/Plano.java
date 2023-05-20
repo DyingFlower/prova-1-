@@ -91,7 +91,7 @@ public class Plano {
 			alunos=leitor.nextInt();
 		}
 		else {
-			for(;alunos>0;alunos--) {
+			for(int i=0;i<alunos;i++) {
 				Aluno aluno = new Aluno("Aluno",this);
 			}
 		}

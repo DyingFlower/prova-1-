@@ -15,6 +15,7 @@ public class Main {
 		r.Retroceder();
 		Pe.Avançar();
 		p.verificarSeTemRobo();
+		System.out.println(r.pontos);
 
 		
 	

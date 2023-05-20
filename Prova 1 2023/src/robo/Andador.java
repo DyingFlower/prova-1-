@@ -9,13 +9,21 @@ public class Andador extends Robo {
 
 	
 	public void Avançar() {
-		plano.listaCelulas[posicaox][posicaoy].criaturas.remove(0);
+		for(int i=0;i<plano.listaCelulas[posicaox][posicaoy].criaturas.size();i++) {
+			if(plano.listaCelulas[posicaox][posicaoy].criaturas.get(i)==this) {
+				plano.listaCelulas[posicaox][posicaoy].criaturas.remove(i);
+			}
+		}
 		posicaoy++;
 		plano.listaCelulas[posicaox][posicaoy].criaturas.add(this);
 	}
 
 	public void Retroceder() {
-		plano.listaCelulas[posicaox][posicaoy].criaturas.remove(0);
+		for(int i=0;i<plano.listaCelulas[posicaox][posicaoy].criaturas.size();i++) {
+			if(plano.listaCelulas[posicaox][posicaoy].criaturas.get(i)==this) {
+				plano.listaCelulas[posicaox][posicaoy].criaturas.remove(i);
+			}
+		}
 		posicaoy--;
 		plano.listaCelulas[posicaox][posicaoy].criaturas.add(this);
 	}

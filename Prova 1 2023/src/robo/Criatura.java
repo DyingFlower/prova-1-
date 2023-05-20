@@ -9,6 +9,7 @@ public class Criatura {
 	public Plano plano;
 	protected String tipo;
 		public Criatura(String nome, Plano plano) {
+			pontos=0;
 			this.nome = nome;
 			this.posicaox =1;
 			this.posicaoy =1;

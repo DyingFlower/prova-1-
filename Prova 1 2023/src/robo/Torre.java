@@ -6,11 +6,15 @@ public class Torre extends Robo{
 		super(id, nome, plano);
 		tipo="Torre";
 	}
-	public void Avançar(int i) {
-		plano.listaCelulas[posicaox][posicaoy].criaturas.remove(0);
+	public void Avançar(int z) {
+		for(int i=0;i<plano.listaCelulas[posicaox][posicaoy].criaturas.size();i++) {
+			if(plano.listaCelulas[posicaox][posicaoy].criaturas.get(i)==this) {
+				plano.listaCelulas[posicaox][posicaoy].criaturas.remove(i);
+			}
+		}
 		try {
-			if(i<=2 && i>0) {
-				posicaoy+=i;
+			if(z<=2 && z>0) {
+				posicaoy+=z;
 				plano.listaCelulas[posicaox][posicaoy].criaturas.add(this);
 			}
 			else {
@@ -21,11 +25,15 @@ public class Torre extends Robo{
 		}
 	}
 
-	public void Retroceder(int i) {
-		plano.listaCelulas[posicaox][posicaoy].criaturas.remove(0);
+	public void Retroceder(int z) {
+		for(int i=0;i<plano.listaCelulas[posicaox][posicaoy].criaturas.size();i++) {
+			if(plano.listaCelulas[posicaox][posicaoy].criaturas.get(i)==this) {
+				plano.listaCelulas[posicaox][posicaoy].criaturas.remove(i);
+			}
+		}
 		try {
-			if(i<=2 && i>0) {
-				posicaoy-=i;	
+			if(z<=2 && z>0) {
+				posicaoy-=z;	
 				plano.listaCelulas[posicaox][posicaoy].criaturas.add(this);
 			}
 			else {
