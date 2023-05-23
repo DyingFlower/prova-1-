@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Plano {
 	public int alunos;
+	public int bugs;
 	public int tamanhox;
 	public int tamanhoy;
 	public Celula[][] listaCelulas;
@@ -21,6 +22,7 @@ public class Plano {
 				}
 			}
 			AdicionarAlunosnoPlano();
+			AdicionarBugsnoPlano();
 	}
 
 	public void verificarSeTemRobo() {
@@ -60,8 +62,7 @@ public class Plano {
 	public void verificarposicoes() {
 		boolean temRobo=false;
 		boolean temAluno=false;
-		int x;
-		int y;
+		boolean temBug=false;
 		for (int i = 0; i < listaCelulas.length; i++) {
 			for (int j = 0; j <listaCelulas[i].length; j++) {
 				 for (Criatura criatura : listaCelulas[i][j].criaturas) {
@@ -70,13 +71,21 @@ public class Plano {
 			            }
 			            else if (criatura instanceof Aluno) {
 			                temAluno = true;
-			            }  
+			            }
+			            else if(criatura instanceof Bug) {
+			            	temBug = true;
+			            }
 			     }
 				 if (temRobo && temAluno) {
 					 for(int k=1;k<listaCelulas[i][j].criaturas.size();k++) {
 						 listaCelulas[i][j].criaturas.get(k).pontos+=10;
 					 }
 		         }
+				 else if(temRobo && temBug) {
+					 for(int k=1;k<listaCelulas[i][j].criaturas.size();k++) {
+						 listaCelulas[i][j].criaturas.get(k).pontos-=15;
+					 } 
+				 }
 				
 	        }
 	    }
@@ -84,7 +93,7 @@ public class Plano {
 	public void AdicionarAlunosnoPlano() {
 		Scanner leitor = new Scanner(System.in);
 		int regra =(tamanhox*tamanhoy)/2;
-		System.out.println("Informe o Numero de alunos no Plano: ");
+		System.out.println("Informe o Numero de alunos e Bugs no Plano: ");
 		alunos=leitor.nextInt();
 		if(alunos>regra) {
 			System.out.println("Numero muito grande de alunos, informe novamente");
@@ -97,6 +106,12 @@ public class Plano {
 		}
 		leitor.close();
 		
+	}
+	public void AdicionarBugsnoPlano() {
+		bugs=alunos;
+		for(int i=0;i<bugs;i++) {
+			Bug bug = new Bug("bug",this);
+		}	
 	}
 
 }
