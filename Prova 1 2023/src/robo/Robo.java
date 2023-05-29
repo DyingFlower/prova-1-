@@ -3,7 +3,7 @@ package robo;
 import java.util.ArrayList;
 
 public abstract class Robo extends Criatura{
-	ArrayList<Celula[][]>passadas= new ArrayList<Celula[][]>();
+	public Passadas passadas;
 	public Robo( int id,String nome, Plano plano) {
 		super(nome, plano);
 		pontos=0;
@@ -28,4 +28,5 @@ public abstract class Robo extends Criatura{
 	public void Retroceder() {
 		
 	}
+	
 }

@@ -7,6 +7,7 @@ public class Celula {
 	public int posicaoX;
 	public int posicaoY;
 	public int id;
+	public String possuido;
 	public ArrayList<Criatura> criaturas;	
 	
 	public Celula(int id, int x , int y) {
